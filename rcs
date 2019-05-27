@@ -1,0 +1,16 @@
+scp mpdl.sh $sh126:/tmp/
+ssh $sh126 #1
+dd of=/tmp/rand1.raw if=/dev/random bs=1M count=19
+. /tmp/mpdl.sh localhost /tmp/rand1.raw /tmp/rand2.raw 3 -c -t
+dd of=/tmp/rand1.raw if=/dev/random bs=1M count=9
+. /tmp/mpdl.sh localhost /tmp/rand1.raw /tmp/rand2.raw 3 -c -t
+dd of=/tmp/rand1.raw if=/dev/random bs=1M count=2
+. /tmp/mpdl.sh localhost /tmp/rand1.raw /tmp/rand2.raw 3 -c -t
+dd of=/tmp/rand1.raw if=/dev/random bs=512 count=1
+. /tmp/mpdl.sh localhost /tmp/rand1.raw /tmp/rand2.raw 3 -c -t
+rm -f /tmp/rmtdwn.sh
+rm -f /tmp/rand1.raw
+rm -f /tmp/rand2.raw
+exit #1
+exit #script
+

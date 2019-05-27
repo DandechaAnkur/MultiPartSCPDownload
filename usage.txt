@@ -1,0 +1,31 @@
+Usage:
+-----
+    ./mpdl.sh                   \
+        <user@remote-machine>   \
+        <filepath_remote>       \
+        <filepath_local>        \
+        [n_parts]               \
+        [-t | --time]           \
+        [-c | --checksum]
+
+    user@remote-machine
+        from where the file has to be downloaded
+
+    filepath_remote
+        filepath on the remote machine which has to be downloaded
+
+    filepath_local
+        filepath on the local machine where the file is to be downloaded
+
+    n_parts
+        number of parts in which the download will progress in parallel
+
+    -t | --time
+        to time the download
+
+    -c | --checksum
+        to verify the checksum of remote file and downloaded local file
+
+    -h | --help
+        display this message
+
