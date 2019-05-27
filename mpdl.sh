@@ -1,7 +1,10 @@
 function main
 {
-    if [ $# -lt 3 ] || [[ $* =~ -h ]] || [[ $* =~ --help ]]; then
-        cat usage.txt
+    var_self_filepath=${BASH_SOURCE[0]}
+    var_self_dir=`realpath $(dirname "$var_self_filepath")`
+
+    if [ $# -lt 3 ] || [[ " $* "  == *" -h "* ]] || [[ " $* " == *" --help "* ]]; then
+        cat "$var_self_dir/usage.txt"
         return
     fi
 
