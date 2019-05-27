@@ -16,3 +16,15 @@ Thus,
 
 For the command line parameters please see this [USAGE](usage.txt) file.
 
+NOTE:
+----
+As cool as it sounds to download in multipart, this script isn't doing multithreading though!
+
+It's just launching DD over SCP into background, and waits for all the separate DD commands to finish copying various parts of the file.
+
+So it depends on the system how much in parallel this background jobs are executed.
+
+**So, this utility should be used typically when file size is considerably large.**
+
+Otherwise, there isn't much scope of time reduction for a normal sized file.
+
