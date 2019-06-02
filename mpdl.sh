@@ -4,6 +4,8 @@ function main
     var_self_dir=`realpath $(dirname "$var_self_filepath")`
 
     if [ $# -lt 3 ] || [[ " $* "  == *" -h "* ]] || [[ " $* " == *" --help "* ]]; then
+        command -v less && less "$var_self_dir/usage.txt" && return
+        command -v more && more "$var_self_dir/usage.txt" && return
         cat "$var_self_dir/usage.txt"
         return
     fi
@@ -13,7 +15,6 @@ function main
     _1M=1048576
 
     n_cores=$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
-    n_pdls=n_cores # number of parallel downloads
     n_pdls=$4 # number of parallel downloads
     if [[ "$n_pdls" == "" ]]; then
         n_pdls=$((n_cores + 0))
